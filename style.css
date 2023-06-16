@@ -1,0 +1,160 @@
+:root {
+    --background: linear-gradient(160deg, #2B3B62, #403C6E);
+    --card: #efefef;
+    --on-card: #000;
+    --border: #dedede;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Crimson Pro', serif;
+}
+
+html,body {
+    width: 100%;
+    height: 100%;
+    background: var(--background);
+    color: #fff;
+    overflow: hidden;
+}
+
+.container {
+    display: grid;
+    grid-auto-rows: 100vh;
+    height: 100%;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+}
+
+.container .section {
+    scroll-snap-align: center;
+}
+
+.section.pop {
+    background: transparent;
+    color: white;
+    border: none;
+}
+
+.section.pop a {
+    color: white;
+}
+
+.section {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto 1fr auto;
+    align-items: center;
+    padding: 2em;
+    background: var(--card);
+    color: var(--on-card);
+    border-bottom: 4px solid var(--border);
+}
+
+.section.central {
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    align-items: center;
+    place-items: center;
+}
+
+.section .greet {
+    grid-column: 1/3;
+    display: grid;
+}
+
+.section .greet img {
+    margin-top: 4em;
+    height: 4em;
+    place-self: flex-end;
+}
+
+.section .greet img.pfp {
+    object-fit: contain;
+    object-position: center;
+    width: 4em;
+    background: var(--background);
+    border-radius: 100%;
+}
+
+.section .content {
+    max-width: 650px;
+}
+
+.section .content h1 {
+    font-size: 2.5em;
+}
+
+.section .content h2 {
+    margin-top: 0.25em;
+    margin-bottom: 0.5em;
+    font-size: 2em;
+    max-width: 550px;
+}
+
+.section .content p {
+    font-size: 1.5em;
+}
+
+.section .content ul {
+    padding: 1em;
+}
+
+.floater {
+    position: absolute;
+    bottom: 2em;
+    right: 2em;
+    background: var(--card);
+    color: var(--on-card);
+    display: flex;
+    align-content: center;
+    border-radius: 100%;
+    border: 2px solid var(--on-card);
+    transition: opacity 0.2s;
+    cursor: pointer;
+    user-select: none;
+}
+
+.floater .material-symbols-outlined {
+    font-size: 2em;
+}
+
+.sidebar {
+    writing-mode: vertical-rl;
+    text-align: center;
+    font-size: 1.5em;
+    align-items: center;
+    width: 64px;
+    display: grid;
+    align-content: center;
+}
+
+.invert {
+    filter: invert();
+}
+
+.rotate {
+    rotate: 90deg;
+}
+
+/* 875px collapse */
+
+@media screen and (max-width: 875px) {
+    .section {
+        padding: 1em!important;
+    }
+    p {
+        font-size: 1em!important;
+        max-width: 75%!important;
+    }
+    h2 {
+        font-size: 1.2em!important;
+        max-width: 75%!important;
+    }
+    h1 {
+        font-size: 1.5em!important;
+        max-width: 75%!important;
+    }
+}
